@@ -30,12 +30,7 @@ jobs:
       terraform_st_key: ${{ needs.get-config.outputs.terraform_st_key }}
       terraform_plan_location: ${{ needs.get-config.outputs.location }}
       terraform_plan_vnet: "TBD" # TBD
-    secrets:
-      azure_creds: ${{ secrets.AZURE_CREDENTIALS }}
-      clientId: ${{ secrets.ARM_CLIENT_ID }}
-      clientSecret: ${{ secrets.ARM_CLIENT_SECRET }}
-      subscriptionId: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      tenantId: ${{ secrets.ARM_TENANT_ID }}
+    secrets: inherit
   deploy-azureml-resources:
     runs-on: ubuntu-latest
     steps:
